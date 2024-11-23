@@ -1,6 +1,6 @@
 - [x] Deploy to vercel
 - [x] Setup db
-- [ ] Add shadcn
+- [x] Add shadcn
 - [ ] Poll creation page
 - [ ] Poll page
 - [ ] Poll results page
