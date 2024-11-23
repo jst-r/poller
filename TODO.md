@@ -1,0 +1,11 @@
+- [ ] Deploy to vercel
+- [ ] Setup db
+- [ ] Add shadcn
+- [ ] Poll creation page
+- [ ] Poll page
+- [ ] Poll results page
+
+- [ ] Home page
+  - [ ] Link to create a poll
+  - [ ] List of polls you created
+  - [ ] About
