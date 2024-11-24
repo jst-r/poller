@@ -5,8 +5,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { POLL_TYPES, PollType } from "@/lib/poll";
-import { zodResolver } from "@hookform/resolvers/zod"
+import { POLL_TYPES } from "@/lib/poll";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
 import { z } from "zod";
 
