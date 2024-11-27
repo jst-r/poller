@@ -15,6 +15,13 @@
       "when": 1732365750619,
       "tag": "0001_previous_timeslip",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1732479188586,
+      "tag": "0002_slim_bastion",
+      "breakpoints": true
     }
   ]
 }
