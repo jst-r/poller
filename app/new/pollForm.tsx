@@ -5,22 +5,14 @@ import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { POLL_TYPES } from "@/lib/poll";
+
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useFieldArray, useForm } from "react-hook-form";
-import { z } from "zod";
+import { SubmitHandler, useFieldArray, useForm } from "react-hook-form";
 
-const pollSchema = z.object({
-	title: z.string(),
-	description: z.string(),
-	type: z.enum(POLL_TYPES),
-	options: z.array(z.object({
-		text: z.string(),
-	})),
-	maxLength: z.number(),
-});
+import { createPoll } from "./actions";
+import { PollSchema, pollSchema } from "./schema";
 
-type PollSchema = z.infer<typeof pollSchema>;
+
 
 export default function PollForm() {
 	const form = useForm<PollSchema>({
@@ -34,10 +26,6 @@ export default function PollForm() {
 		resolver: zodResolver(pollSchema),
 	});
 
-	const onSubmit = (data: PollSchema) => {
-		console.log(data);
-	}
-
 	const options = useFieldArray({
 		control: form.control,
 		name: "options",
@@ -46,6 +34,7 @@ export default function PollForm() {
 	const isChoice = form.watch("type") === "MULTIPLE_CHOICE" || form.watch("type") === "SINGLE_CHOICE";
 	const isText = form.watch("type") === "TEXT";
 
+	const onSubmit: SubmitHandler<PollSchema> = async (data) => (await createPoll(data));
 
 	return (
 		<Form {...form}>
@@ -136,7 +125,7 @@ export default function PollForm() {
 						/>
 					)
 				}
-
+				<Button type="submit">Create Poll</Button>
 			</form>
 		</Form>
 	)
